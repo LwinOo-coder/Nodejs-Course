@@ -14,6 +14,11 @@ let filename;
             filename = "contact.html";
             res.statusCode = 200;
             break;
+        
+        case '/contact-us':
+            res.statusCode = 301;
+            res.setHeader('Location','/contact')
+            break;
 
         case '/about':
             filename = "about.html";
