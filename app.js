@@ -1,3 +1,4 @@
+const { name } = require('ejs');
 const express = require('express');
 
 const app = express();
@@ -6,7 +7,17 @@ app.set('views', './views')
 app.set('view engine', 'ejs')
 
 app.get('/', (req,res) => {
-    res.render('home');
+
+
+    let blogs = [
+        {title : 'Blog title update 1', intro : 'this is b log intro 1'},
+        {title : 'Blog title 2', intro : 'this is b log intro 2'},
+        {title : 'Blog title 3', intro : 'this is b log intro 3'},
+    ];
+
+    res.render('home', {
+        blogs
+    })
 });
 
 app.get('/about', (req,res) => {
