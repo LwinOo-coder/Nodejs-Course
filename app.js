@@ -2,19 +2,15 @@ const { name } = require('ejs');
 const express = require('express');
 
 const app = express();
+let morgan = require('morgan')
 
 app.set('views', './views')
 app.set('view engine', 'ejs')
 
-app.use((req,res,next) => {
-    console.log('first middle ware is running');
-    next();
-})
 
-app.use((req,res,next) => {
-    console.log('second middle ware is running');
-    next();
-})
+//package name - morgan
+app.use(morgan('dev'))
+
 
 app.get('/', (req,res) => {
 
