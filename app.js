@@ -6,6 +6,16 @@ const app = express();
 app.set('views', './views')
 app.set('view engine', 'ejs')
 
+app.use((req,res,next) => {
+    console.log('first middle ware is running');
+    next();
+})
+
+app.use((req,res,next) => {
+    console.log('second middle ware is running');
+    next();
+})
+
 app.get('/', (req,res) => {
 
 
