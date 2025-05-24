@@ -1,8 +1,12 @@
 const { name } = require('ejs');
 const express = require('express');
+let morgan = require('morgan')
 
 const app = express();
-let morgan = require('morgan')
+
+//db url
+let mongoUrl = "mongodb+srv://lwinoo:test1234@cluster0.2o1ydpk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
 
 app.set('views', './views')
 app.set('view engine', 'ejs')
