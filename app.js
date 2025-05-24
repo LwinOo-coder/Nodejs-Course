@@ -1,11 +1,21 @@
 const { name } = require('ejs');
 const express = require('express');
 let morgan = require('morgan')
+const mongoose = require('mongoose');
 
 const app = express();
 
 //db url
 let mongoUrl = "mongodb+srv://lwinoo:test1234@cluster0.2o1ydpk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+mongoose.connect(mongoUrl).then(() => {
+    console.log('connected to the database');
+    app.listen(3000, () => {
+        console.log('app is running on the port 3000');
+    })
+}).catch(e => {
+    console.log(e);
+})
+
 
 
 app.set('views', './views')
@@ -52,6 +62,3 @@ app.use((req,res) => {
 });
 
 
-app.listen(3000, () => {
-    console.log('app is running on the port 3000');
-})
